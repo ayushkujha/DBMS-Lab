@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { getExamSet } from '../../shared/sets';
-import { linePrompts, splitInput } from '../../shared/splitter';
+import { getExamSet } from '../shared/sets';
+import { linePrompts, splitInput } from '../shared/splitter';
 import {
   SET_IDS,
   emptyProgress,
@@ -9,7 +9,7 @@ import {
   type Progress,
   type SessionInfo,
   type SetId,
-} from '../../shared/types';
+} from '../shared/types';
 import { executeSetSql, fetchSetSession, resetSet } from './api';
 import {
   MYSQL_HELP_LINES,
@@ -93,7 +93,6 @@ function transcriptToEntries(items: BootstrappedItem[]): {
 }
 
 function digitFromKeyEvent(e: KeyboardEvent): SetId | null {
-  // Match Digit1..Digit8 or Numpad1..Numpad8 or key '1'..'8'
   const codeMatch = e.code?.match(/^(?:Digit|Numpad)([1-8])$/);
   if (codeMatch) {
     const n = Number(codeMatch[1]);
@@ -217,10 +216,6 @@ export const App: React.FC = () => {
     [updateWorkspace],
   );
 
-  // Global keyboard shortcuts:
-  //   Ctrl+1..8, Alt+1..8, Ctrl+Shift+1..8 -> switch to Set 1..8
-  //   Ctrl+/ -> toggle stealth monochrome question overlay
-  //   Esc -> close stealth overlay
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && showStealthHelp) {

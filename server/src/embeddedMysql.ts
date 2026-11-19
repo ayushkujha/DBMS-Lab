@@ -6,6 +6,9 @@
  * When a real MySQL 8.0 server is reachable (locally via mysqld / Docker or on
  * Vercel via MYSQL_URL / MYSQL_HOST), server/src/sessions.ts is used instead.
  */
+import { existsSync, readFileSync } from 'node:fs';
+import { createRequire } from 'node:module';
+import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import initSqlJs, { type Database as SqlJsDatabase, type SqlJsStatic } from 'sql.js';
 import { config } from './config';
@@ -54,7 +57,18 @@ interface EmbeddedSetState {
 let sqlJsPromise: Promise<SqlJsStatic> | null = null;
 function getSqlJs(): Promise<SqlJsStatic> {
   if (!sqlJsPromise) {
-    sqlJsPromise = initSqlJs();
+    let wasmBinary: Buffer | undefined;
+    try {
+      const req = createRequire(import.meta.url);
+      const wasmPath = req.resolve('sql.js/dist/sql-wasm.wasm');
+      wasmBinary = readFileSync(wasmPath);
+    } catch {
+      const fallbackPath = path.join(process.cwd(), 'node_modules', 'sql.js', 'dist', 'sql-wasm.wasm');
+      if (existsSync(fallbackPath)) {
+        wasmBinary = readFileSync(fallbackPath);
+      }
+    }
+    sqlJsPromise = initSqlJs(wasmBinary ? { wasmBinary } : undefined);
   }
   return sqlJsPromise;
 }

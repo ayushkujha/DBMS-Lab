@@ -59,5 +59,5 @@ export const config = {
     /** Client-side timeout for any statement, ms. */
     queryTimeoutMs: 30_000,
   },
-  clientDist: path.join(ROOT_DIR, 'client', 'dist'),
+  clientDist: path.join(ROOT_DIR, 'dist'),
 };

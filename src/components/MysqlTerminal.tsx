@@ -6,9 +6,9 @@ import {
   mysqlErrorLine,
   okSummary,
   resultSetSummary,
-} from '../../../shared/format';
-import { linePrompts, type PromptKind } from '../../../shared/splitter';
-import type { ExecuteResponse, SessionInfo } from '../../../shared/types';
+} from '../../shared/format';
+import { linePrompts, type PromptKind } from '../../shared/splitter';
+import type { ExecuteResponse, SessionInfo } from '../../shared/types';
 
 export interface EchoLine {
   prompt: PromptKind;

@@ -4,7 +4,7 @@ import type {
   HealthResponse,
   SessionInfo,
   SetId,
-} from '../../shared/types';
+} from '../shared/types';
 
 const SESSION_STORAGE_KEY = 'dbms_lab_visitor_session_id';
 

@@ -3,28 +3,34 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "DBMS Lab External exam terminal — a MySQL 8.0 command-line practice environment for all 8 sets.",
-  "workspaces": [
-    "server",
-    "client"
-  ],
+  "description": "MySQL 8.0 Command Line Client — DBMS Lab External Exam Terminal",
   "scripts": {
     "db:up": "docker compose up -d mysql",
     "db:down": "docker compose down",
-    "dev": "concurrently -n server,client -c cyan,green \"npm run dev -w server\" \"npm run dev -w client\"",
-    "build": "npm run build -w client",
-    "start": "npm run start -w server",
-    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
-    "verify": "npm run verify -w server"
+    "dev": "concurrently -n server,client -c cyan,green \"tsx watch --clear-screen=false server/src/index.ts\" \"vite --port 5173\"",
+    "build": "vite build",
+    "start": "tsx server/src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "verify": "tsx server/scripts/verify.ts"
   },
   "dependencies": {
     "express": "^5.1.0",
     "mysql2": "^3.14.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "sql.js": "^1.13.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.7",
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.0",
-    "concurrently": "^9.1.2"
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.4",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "tailwindcss": "^4.1.7",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }
