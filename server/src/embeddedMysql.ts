@@ -925,7 +925,9 @@ async function runSingleEmbedded(
     const info =
       first === 'UPDATE'
         ? `Rows matched: ${affected}  Changed: ${affected}  Warnings: 0`
-        : '';
+        : first === 'INSERT' && affected > 1
+          ? `Records: ${affected}  Duplicates: 0  Warnings: 0`
+          : '';
     return makeOk(affected, info, false, affected);
   } catch (e: unknown) {
     const mapped = mapSqliteErrorToMysql((e as Error).message, st.activeDatabase, setId);

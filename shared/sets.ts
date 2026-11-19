@@ -105,36 +105,15 @@ CREATE TABLE Course_Faculty (
     FOREIGN KEY (Faculty_id) REFERENCES Faculty(Faculty_id)
 );`;
 
-const COLLEGE_INSERT = `INSERT INTO Students VALUES (101, 'Arjun Reddy',  'CSE', 3, 'arjun@vjit.ac.in',  '9876500001');
-INSERT INTO Students VALUES (102, 'Sneha Rao',    'ECE', 3, 'sneha@vjit.ac.in',  '9876500002');
-INSERT INTO Students VALUES (103, 'Kiran Kumar',  'CSE', 2, 'kiran@vjit.ac.in',  '9876500003');
-INSERT INTO Students VALUES (104, 'Divya Sri',    'IT',  3, 'divya@vjit.ac.in',  '9876500004');
-INSERT INTO Students VALUES (105, 'Rohit Verma',  'CSE', 3, 'rohit@vjit.ac.in',  '9876500005');
+const COLLEGE_INSERT = `INSERT INTO Students VALUES (101, 'Arjun Reddy', 'CSE', 3, 'arjun@vjit.ac.in', '9876500001'), (102, 'Sneha Rao', 'ECE', 3, 'sneha@vjit.ac.in', '9876500002'), (103, 'Kiran Kumar', 'CSE', 2, 'kiran@vjit.ac.in', '9876500003'), (104, 'Divya Sri', 'IT', 3, 'divya@vjit.ac.in', '9876500004'), (105, 'Rohit Verma', 'CSE', 3, 'rohit@vjit.ac.in', '9876500005');
 
-INSERT INTO Courses VALUES (201, 'DBMS',                4);
-INSERT INTO Courses VALUES (202, 'Data Structures',     4);
-INSERT INTO Courses VALUES (203, 'Operating Systems',   3);
-INSERT INTO Courses VALUES (204, 'Computer Networks',   3);
-INSERT INTO Courses VALUES (205, 'Python Programming',  2);
+INSERT INTO Courses VALUES (201, 'DBMS', 4), (202, 'Data Structures', 4), (203, 'Operating Systems', 3), (204, 'Computer Networks', 3), (205, 'Python Programming', 2);
 
-INSERT INTO Faculty VALUES (301, 'Dr. Meena Iyer',    'CSE');
-INSERT INTO Faculty VALUES (302, 'Prof. Suresh Babu', 'CSE');
-INSERT INTO Faculty VALUES (303, 'Dr. Anitha Rao',    'ECE');
-INSERT INTO Faculty VALUES (304, 'Prof. Rajesh Nair', 'IT');
-INSERT INTO Faculty VALUES (305, 'Dr. Lakshmi Devi',  'Mathematics');
+INSERT INTO Faculty VALUES (301, 'Dr. Meena Iyer', 'CSE'), (302, 'Prof. Suresh Babu', 'CSE'), (303, 'Dr. Anitha Rao', 'ECE'), (304, 'Prof. Rajesh Nair', 'IT'), (305, 'Dr. Lakshmi Devi', 'Mathematics');
 
-INSERT INTO Enrollment VALUES (1, 101, 201, DATE '2026-07-20', 'A');
-INSERT INTO Enrollment VALUES (2, 101, 202, DATE '2026-07-20', 'B');
-INSERT INTO Enrollment VALUES (3, 102, 201, DATE '2026-07-21', 'A');
-INSERT INTO Enrollment VALUES (4, 103, 203, DATE '2026-07-21', 'A');
-INSERT INTO Enrollment VALUES (5, 104, 204, DATE '2026-07-22', 'C');
-INSERT INTO Enrollment VALUES (6, 105, 201, DATE '2026-07-22', 'B');
+INSERT INTO Enrollment VALUES (1, 101, 201, DATE '2026-07-20', 'A'), (2, 101, 202, DATE '2026-07-20', 'B'), (3, 102, 201, DATE '2026-07-21', 'A'), (4, 103, 203, DATE '2026-07-21', 'A'), (5, 104, 204, DATE '2026-07-22', 'C'), (6, 105, 201, DATE '2026-07-22', 'B');
 
-INSERT INTO Course_Faculty VALUES (201, 301);
-INSERT INTO Course_Faculty VALUES (202, 302);
-INSERT INTO Course_Faculty VALUES (203, 302);
-INSERT INTO Course_Faculty VALUES (204, 303);
-INSERT INTO Course_Faculty VALUES (205, 304);`;
+INSERT INTO Course_Faculty VALUES (201, 301), (202, 302), (203, 302), (204, 303), (205, 304);`;
 
 const COLLEGE_TABLES = [
   { name: 'Students', columns: ['Student_ID', 'Student_name', 'Branch', 'Year', 'Email', 'Phone'] },
@@ -206,25 +185,11 @@ CREATE TABLE Reserves (
     FOREIGN KEY (bid) REFERENCES Boats(bid)
 );`;
 
-const SAILORS_INSERT = `INSERT INTO Sailors VALUES (22, 'Dustin',  7, 45.0);
-INSERT INTO Sailors VALUES (29, 'Brutus',  1, 33.0);
-INSERT INTO Sailors VALUES (31, 'Lubber',  8, 55.5);
-INSERT INTO Sailors VALUES (58, 'Rusty',  10, 35.0);
-INSERT INTO Sailors VALUES (64, 'Horatio', 7, 35.0);
-INSERT INTO Sailors VALUES (71, 'Zorba',  10, 16.0);
+const SAILORS_INSERT = `INSERT INTO Sailors VALUES (22, 'Dustin', 7, 45.0), (29, 'Brutus', 1, 33.0), (31, 'Lubber', 8, 55.5), (58, 'Rusty', 10, 35.0), (64, 'Horatio', 7, 35.0), (71, 'Zorba', 10, 16.0);
 
-INSERT INTO Boats VALUES (101, 'Interlake', 'blue');
-INSERT INTO Boats VALUES (102, 'Interlake', 'red');
-INSERT INTO Boats VALUES (103, 'Clipper',   'green');
-INSERT INTO Boats VALUES (104, 'Marine',    'red');
-INSERT INTO Boats VALUES (105, 'Voyager',   'blue');
+INSERT INTO Boats VALUES (101, 'Interlake', 'blue'), (102, 'Interlake', 'red'), (103, 'Clipper', 'green'), (104, 'Marine', 'red'), (105, 'Voyager', 'blue');
 
-INSERT INTO Reserves VALUES (22, 101, DATE '2026-10-10');
-INSERT INTO Reserves VALUES (22, 102, DATE '2026-10-10');
-INSERT INTO Reserves VALUES (22, 103, DATE '2026-08-10');
-INSERT INTO Reserves VALUES (31, 103, DATE '2026-06-11');
-INSERT INTO Reserves VALUES (58, 103, DATE '2026-11-12');
-INSERT INTO Reserves VALUES (64, 104, DATE '2026-09-05');`;
+INSERT INTO Reserves VALUES (22, 101, DATE '2026-10-10'), (22, 102, DATE '2026-10-10'), (22, 103, DATE '2026-08-10'), (31, 103, DATE '2026-06-11'), (58, 103, DATE '2026-11-12'), (64, 104, DATE '2026-09-05');`;
 
 const SAILORS_TABLES = [
   { name: 'Sailors', columns: ['sid', 'sname', 'rating', 'age'] },
@@ -283,17 +248,9 @@ CREATE TABLE product_master (
     cost_price     INT CHECK (cost_price >= 0)
 );`;
 
-const CLIENT_INSERT = `INSERT INTO client_master VALUES ('0001', 'Ivan Bayross',     'Bombay',    400054, 'Maharashtra', 15000);
-INSERT INTO client_master VALUES ('0002', 'Vandana Saitwal',  'Madras',    780001, 'Tamil Nadu',  0);
-INSERT INTO client_master VALUES ('0003', 'Pramada Jaguste',  'Delhi',     110001, 'Delhi',       5000);
-INSERT INTO client_master VALUES ('0004', 'Basu Navindgi',    'Bombay',    400057, 'Maharashtra', 0);
-INSERT INTO client_master VALUES ('0005', 'Ravi Sreedharan',  'Bangalore', 560001, 'Karnataka',   2000);
+const CLIENT_INSERT = `INSERT INTO client_master VALUES ('0001', 'Ivan Bayross', 'Bombay', 400054, 'Maharashtra', 15000), ('0002', 'Vandana Saitwal', 'Madras', 780001, 'Tamil Nadu', 0), ('0003', 'Pramada Jaguste', 'Delhi', 110001, 'Delhi', 5000), ('0004', 'Basu Navindgi', 'Bombay', 400057, 'Maharashtra', 0), ('0005', 'Ravi Sreedharan', 'Bangalore', 560001, 'Karnataka', 2000);
 
-INSERT INTO product_master VALUES ('P00001', 'Keyboard',     12.50, 'Piece', 100, 20,  500,  444);
-INSERT INTO product_master VALUES ('P00002', 'Mouse',        15.00, 'Piece', 150, 30,  350,  304);
-INSERT INTO product_master VALUES ('P00003', 'Monitor',      10.00, 'Piece',  40, 10, 3200, 2909);
-INSERT INTO product_master VALUES ('P00004', 'Hard Disk 1TB', 8.00, 'Piece',  60, 15, 5000, 4630);
-INSERT INTO product_master VALUES ('P00005', 'Printer',      10.00, 'Piece',  25,  5, 8500, 7727);`;
+INSERT INTO product_master VALUES ('P00001', 'Keyboard', 12.50, 'Piece', 100, 20, 500, 444), ('P00002', 'Mouse', 15.00, 'Piece', 150, 30, 350, 304), ('P00003', 'Monitor', 10.00, 'Piece', 40, 10, 3200, 2909), ('P00004', 'Hard Disk 1TB', 8.00, 'Piece', 60, 15, 5000, 4630), ('P00005', 'Printer', 10.00, 'Piece', 25, 5, 8500, 7727);`;
 
 const CLIENT_TABLES = [
   { name: 'client_master', columns: ['client_no', 'name', 'city', 'pincode', 'state', 'bal_due'] },
@@ -417,47 +374,19 @@ CREATE TABLE Payment (
     FOREIGN KEY (Booking_ID) REFERENCES Booking(Booking_ID)
 );`;
 
-const ROADWAY_INSERT = `INSERT INTO Passenger VALUES (1, 'Ravi Teja',        28, 'M', '9876512340', 'ravi.teja@mail.com');
-INSERT INTO Passenger VALUES (2, 'Anjali Sharma',    34, 'F', '9876512341', 'anjali.s@mail.com');
-INSERT INTO Passenger VALUES (3, 'Mohammed Imran',   45, 'M', '9876512342', 'imran.m@mail.com');
-INSERT INTO Passenger VALUES (4, 'Lakshmi Prasanna', 52, 'F', '9876512343', 'lakshmi.p@mail.com');
-INSERT INTO Passenger VALUES (5, 'Karthik Naidu',    23, 'M', '9876512344', 'karthik.n@mail.com');
+const ROADWAY_INSERT = `INSERT INTO Passenger VALUES (1, 'Ravi Teja', 28, 'M', '9876512340', 'ravi.teja@mail.com'), (2, 'Anjali Sharma', 34, 'F', '9876512341', 'anjali.s@mail.com'), (3, 'Mohammed Imran', 45, 'M', '9876512342', 'imran.m@mail.com'), (4, 'Lakshmi Prasanna', 52, 'F', '9876512343', 'lakshmi.p@mail.com'), (5, 'Karthik Naidu', 23, 'M', '9876512344', 'karthik.n@mail.com');
 
-INSERT INTO Bus VALUES (1, 'TS09UA1234', 'Volvo AC Sleeper', 40, 'Active');
-INSERT INTO Bus VALUES (2, 'TS08UB5678', 'Express',          52, 'Active');
-INSERT INTO Bus VALUES (3, 'AP28TC9012', 'Deluxe',           45, 'Active');
-INSERT INTO Bus VALUES (4, 'TS10UD3456', 'Super Luxury',     50, 'Maintenance');
-INSERT INTO Bus VALUES (5, 'KA01AE7890', 'Mini',             30, 'Active');
+INSERT INTO Bus VALUES (1, 'TS09UA1234', 'Volvo AC Sleeper', 40, 'Active'), (2, 'TS08UB5678', 'Express', 52, 'Active'), (3, 'AP28TC9012', 'Deluxe', 45, 'Active'), (4, 'TS10UD3456', 'Super Luxury', 50, 'Maintenance'), (5, 'KA01AE7890', 'Mini', 30, 'Active');
 
-INSERT INTO Driver VALUES (1, 'Ramesh Kumar',  'TS0920150012345', '9000000001', 12);
-INSERT INTO Driver VALUES (2, 'Suresh Yadav',  'TS0820130054321', '9000000002', 15);
-INSERT INTO Driver VALUES (3, 'Venkat Rao',    'AP2820180098765', '9000000003',  8);
-INSERT INTO Driver VALUES (4, 'Mahesh Goud',   'TS1020120011223', '9000000004', 16);
-INSERT INTO Driver VALUES (5, 'Prakash Shetty','KA0120190033445', '9000000005',  6);
+INSERT INTO Driver VALUES (1, 'Ramesh Kumar', 'TS0920150012345', '9000000001', 12), (2, 'Suresh Yadav', 'TS0820130054321', '9000000002', 15), (3, 'Venkat Rao', 'AP2820180098765', '9000000003', 8), (4, 'Mahesh Goud', 'TS1020120011223', '9000000004', 16), (5, 'Prakash Shetty', 'KA0120190033445', '9000000005', 6);
 
-INSERT INTO Route VALUES (1, 'Hyderabad', 'Bengaluru',  570, '10h 30m');
-INSERT INTO Route VALUES (2, 'Hyderabad', 'Chennai',    630, '12h');
-INSERT INTO Route VALUES (3, 'Hyderabad', 'Vijayawada',275, '5h');
-INSERT INTO Route VALUES (4, 'Hyderabad', 'Mumbai',     710, '13h');
-INSERT INTO Route VALUES (5, 'Bengaluru', 'Chennai',    350, '6h');
+INSERT INTO Route VALUES (1, 'Hyderabad', 'Bengaluru', 570, '10h 30m'), (2, 'Hyderabad', 'Chennai', 630, '12h'), (3, 'Hyderabad', 'Vijayawada', 275, '5h'), (4, 'Hyderabad', 'Mumbai', 710, '13h'), (5, 'Bengaluru', 'Chennai', 350, '6h');
 
-INSERT INTO Schedule VALUES (1, 1, 1, 1, '21:00:00', '07:30:00', DATE '2026-12-05');
-INSERT INTO Schedule VALUES (2, 2, 2, 2, '20:00:00', '08:00:00', DATE '2026-12-06');
-INSERT INTO Schedule VALUES (3, 3, 3, 3, '06:00:00', '11:00:00', DATE '2026-12-07');
-INSERT INTO Schedule VALUES (4, 4, 4, 4, '18:00:00', '07:00:00', DATE '2026-12-08');
-INSERT INTO Schedule VALUES (5, 5, 5, 5, '07:00:00', '13:00:00', DATE '2026-12-09');
+INSERT INTO Schedule VALUES (1, 1, 1, 1, '21:00:00', '07:30:00', DATE '2026-12-05'), (2, 2, 2, 2, '20:00:00', '08:00:00', DATE '2026-12-06'), (3, 3, 3, 3, '06:00:00', '11:00:00', DATE '2026-12-07'), (4, 4, 4, 4, '18:00:00', '07:00:00', DATE '2026-12-08'), (5, 5, 5, 5, '07:00:00', '13:00:00', DATE '2026-12-09');
 
-INSERT INTO Booking VALUES (1, 1, 1, DATE '2026-11-20', 12,  850.00, 'Confirmed');
-INSERT INTO Booking VALUES (2, 2, 2, DATE '2026-11-21',  5, 1200.00, 'Confirmed');
-INSERT INTO Booking VALUES (3, 3, 3, DATE '2026-11-22', 18,  950.00, 'Confirmed');
-INSERT INTO Booking VALUES (4, 4, 4, DATE '2026-11-23', 22,  700.00, 'Pending');
-INSERT INTO Booking VALUES (5, 1, 5, DATE '2026-11-24',  9, 1100.00, 'Confirmed');
+INSERT INTO Booking VALUES (1, 1, 1, DATE '2026-11-20', 12, 850.00, 'Confirmed'), (2, 2, 2, DATE '2026-11-21', 5, 1200.00, 'Confirmed'), (3, 3, 3, DATE '2026-11-22', 18, 950.00, 'Confirmed'), (4, 4, 4, DATE '2026-11-23', 22, 700.00, 'Pending'), (5, 1, 5, DATE '2026-11-24', 9, 1100.00, 'Confirmed');
 
-INSERT INTO Payment VALUES (1, 1, DATE '2026-11-20',  850.00, 'UPI',  'Paid');
-INSERT INTO Payment VALUES (2, 2, DATE '2026-11-21', 1200.00, 'Card', 'Paid');
-INSERT INTO Payment VALUES (3, 3, DATE '2026-11-22',  950.00, 'Cash', 'Paid');
-INSERT INTO Payment VALUES (4, 4, DATE '2026-11-23',  700.00, 'UPI',  'Pending');
-INSERT INTO Payment VALUES (5, 5, DATE '2026-11-24', 1100.00, 'Card', 'Paid');`;
+INSERT INTO Payment VALUES (1, 1, DATE '2026-11-20', 850.00, 'UPI', 'Paid'), (2, 2, DATE '2026-11-21', 1200.00, 'Card', 'Paid'), (3, 3, DATE '2026-11-22', 950.00, 'Cash', 'Paid'), (4, 4, DATE '2026-11-23', 700.00, 'UPI', 'Pending'), (5, 5, DATE '2026-11-24', 1100.00, 'Card', 'Paid');`;
 
 const ROADWAY_TABLES = [
   { name: 'Passenger', columns: ['Passenger_ID', 'Name', 'Age', 'Gender', 'Phone', 'Email'] },
