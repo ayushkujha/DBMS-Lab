@@ -5,17 +5,13 @@
   "functions": {
     "api/index.ts": {
       "maxDuration": 30,
-      "includeFiles": "node_modules/sql.js/dist/**"
+      "includeFiles": "public/sql-wasm.wasm"
     }
   },
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/index.ts"
-    },
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
     }
   ]
 }

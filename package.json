@@ -2,7 +2,6 @@
   "name": "dbms-lab-external",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
   "description": "MySQL 8.0 Command Line Client — DBMS Lab External Exam Terminal",
   "scripts": {
     "db:up": "docker compose up -d mysql",
